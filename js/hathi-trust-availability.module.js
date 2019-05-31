@@ -54,7 +54,7 @@ angular.module('hathiTrustAvailability', [])
     }
 
     var setDefaults = function() {
-      if (!self.msg) self.msg = 'View Journals Contents (Hathitrust coverage)';
+      if (!self.msg) self.msg = 'View Journal Contents (HathiTrust coverage)';
     }
 
     var isOnline = function() {
@@ -86,9 +86,13 @@ angular.module('hathiTrustAvailability', [])
     controller: 'hathiTrustAvailabilityController',
     template: '<span ng-if="$ctrl.fullTextLink" class="umnHathiTrustLink">\
                 <a target="_blank" ng-href="{{$ctrl.fullTextLink}}" \ class="browzine-web-link">\
-                <img src="https://assets.thirdiron.com/images/integrations/browzine-open-book-icon.svg" class="browzine-book-icon"\ style="margin-left: 5px; margin-right: 3px;"\  aria-hidden="true" width="15" height="15"/>\
+                <prm icon icon-type="svg" svg-icon-set="primo-actions"\
+                icon-definition="visibility"></prm-icon>\
                 {{ ::$ctrl.msg }}\
                   <prm-icon external-link="" icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\
                 </a>\
               </span>'
   });
+
+
+//<img src="https://assets.thirdiron.com/images/integrations/browzine-open-book-icon.svg" class="browzine-book-icon"\ style="margin-left: 5px; margin-right: 3px; margin-top: 2px"\ aria-hidden="true" width="15" height="15" />\
