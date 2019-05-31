@@ -22,9 +22,9 @@ angular.module('hathiTrustAvailability', [])
             if (item.usRightsString.toLowerCase() === "full view") {
               fullTextUrl = result.records[item.fromRecord].recordURL;
               break;
-            }  
-          }  
-        }  
+            }
+          }
+        }
         deferred.resolve(fullTextUrl);
       }
 
@@ -35,10 +35,10 @@ angular.module('hathiTrustAvailability', [])
           .catch(function(e) {console.log(e)});
       } else {
         deferred.resolve(null);
-      }  
+      }
 
       return deferred.promise;
-    }; 
+    };
 
     return svc;
 
@@ -50,12 +50,12 @@ angular.module('hathiTrustAvailability', [])
       setDefaults();
       if ( !(isOnline() && self.hideOnline) ) {
         updateHathiTrustAvailability();
-      }  
-    }  
+      }
+    }
 
     var setDefaults = function() {
-      if (!self.msg) self.msg = 'Full Text Available at HathiTrust';
-    }  
+      if (!self.msg) self.msg = 'View Journals Contents (Hathitrust coverage)';
+    }
 
     var isOnline = function() {
       return self.prmSearchResultAvailabilityLine.result.delivery.GetIt1.some(function (g) {
@@ -63,7 +63,7 @@ angular.module('hathiTrustAvailability', [])
           return l.isLinktoOnline;
         });
       });
-    }  
+    }
 
     var updateHathiTrustAvailability = function() {
       var hathiTrustIds = (self.prmSearchResultAvailabilityLine.result.pnx.addata.oclcid || []).map(function (id) {
@@ -72,15 +72,15 @@ angular.module('hathiTrustAvailability', [])
       hathiTrust.findFullViewRecord(hathiTrustIds).then(function (res) {
         self.fullTextLink = res;
       });
-    }  
+    }
 
   }])
   .component('hathiTrustAvailability', {
     require: {
       prmSearchResultAvailabilityLine: '^prmSearchResultAvailabilityLine'
     },
-    bindings: { 
-      hideOnline: '<', 
+    bindings: {
+      hideOnline: '<',
       msg: '@?'
     },
     controller: 'hathiTrustAvailabilityController',
