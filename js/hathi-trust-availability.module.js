@@ -86,7 +86,7 @@ angular.module('hathiTrustAvailability', [])
     controller: 'hathiTrustAvailabilityController',
     template: '<span ng-if="$ctrl.fullTextLink" class="umnHathiTrustLink">\
                 <a target="_blank" ng-href="{{$ctrl.fullTextLink}}" \ class="browzine-web-link">\
-                <prm icon icon-type="svg" svg-icon-set="primo-actions"\
+                <prm-icon icon-type="svg" svg-icon-set="primo-actions"\
                 icon-definition="visibility"></prm-icon>\
                 {{ ::$ctrl.msg }}\
                   <prm-icon external-link="" icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\
