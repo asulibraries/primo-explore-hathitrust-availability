@@ -85,9 +85,9 @@ angular.module('hathiTrustAvailability', [])
     },
     controller: 'hathiTrustAvailabilityController',
     template: '<span ng-if="$ctrl.fullTextLink" class="umnHathiTrustLink">\
-                  <img src="https://assets.thirdiron.com/images/integrati\
+                <a target="_blank" ng-href="{{$ctrl.fullTextLink}}" \ class="browzine-web-link">\
+                <img src="https://assets.thirdiron.com/images/integrati\
                   ons/browzine-open-book-icon.svg" class="browzine-book-icon"\ style="margin=bottom: -2px; margin - right: 2.5px;"\  aria-hidden="true" width="15" height="15"/>\
-                <a target="_blank" ng-href="{{$ctrl.fullTextLink}}">\
                 {{ ::$ctrl.msg }}\
                   <prm-icon external-link="" icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\
                 </a>\
