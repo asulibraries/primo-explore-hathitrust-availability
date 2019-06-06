@@ -54,7 +54,7 @@ angular.module('hathiTrustAvailability', [])
     }
 
     var setDefaults = function() {
-      if (!self.msg) self.msg = 'View Journal Contents (HathiTrust coverage)';
+      if (!self.msg) self.msg = 'View journal contents (HathiTrust coverage)';
     }
 
     var isOnline = function() {
