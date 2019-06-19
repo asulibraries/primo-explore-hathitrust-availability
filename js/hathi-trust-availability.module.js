@@ -69,7 +69,12 @@ angular.module('hathiTrustAvailability', [])
 
     var updateHathiTrustAvailability = function() {
       var hathiTrustIds = (self.prmSearchResultAvailabilityLine.result.pnx.addata.oclcid || []).map(function (id) {
-        return "oclc:" + id;
+        if (id.indexOf("(ocolc)", 0) !== -1) {
+          id = id.replace("(ocolc)", "");
+          return "oclc:" + id;
+        } else {
+          return id;
+        }
       });
       hathiTrust.findFullViewRecord(hathiTrustIds).then(function (res) {
         self.fullTextLink = res;
