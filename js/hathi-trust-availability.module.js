@@ -29,9 +29,7 @@ angular.module('hathiTrustAvailability', [])
       }
 
       if (ids.length) {
-        console.log(ids);
         var hathiTrustLookupUrl = hathiTrustBaseUrl + ids.join('|');
-        console.log(hathiTrustLookupUrl);
         $http.jsonp(hathiTrustLookupUrl, { cache: true , jsonpCallbackParam: 'callback'})
           .then(handleResponse)
           .catch(function(e) {console.log(e)});
