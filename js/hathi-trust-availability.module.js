@@ -59,12 +59,16 @@ angular.module('hathiTrustAvailability', [])
       if (!self.msg) self.msg = 'View journal contents (HathiTrust coverage)';
     }
 
-    var isOnline = function() {
-      return self.prmSearchResultAvailabilityLine.result.delivery.GetIt1.some(function (g) {
-        return g.links.some(function (l) {
-          return l.isLinktoOnline;
-        });
-      });
+    var isOnline = function () {
+      if (self.prmSearchResultAvailabilityLine.result.delivery.GetIt1) {
+        return self.prmSearchResultAvailabilityLine.result.delivery.GetIt1.some(function (g) {
+            return g.links.some(function (l) {
+                return l.isLinktoOnline;
+              });
+          });
+      } else {
+        return false;
+      }
     }
 
     var updateHathiTrustAvailability = function() {
