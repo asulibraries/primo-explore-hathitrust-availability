@@ -71,13 +71,15 @@ angular.module('hathiTrustAvailability', [])
 
     var updateHathiTrustAvailability = function() {
       var hathiTrustIds = (self.prmSearchResultAvailabilityLine.result.pnx.addata.oclcid || []).map(function (id) {
-        if (id.indexOf("(ocolc)", 0) !== -1) {
+        if (id.startsWith("(ocolc)")) {
           id = id.replace("(ocolc)", "");
           return "oclc:" + id;
-        } else {
-          return id;
+        }
+        else if (id.match(/^\d/)){
+          return "oclc:" + id;
         }
       });
+      hathiTrustIds = hathiTrustIds.filter(Boolean);
       hathiTrust.findFullViewRecord(hathiTrustIds).then(function (res) {
         self.fullTextLink = res;
       });
